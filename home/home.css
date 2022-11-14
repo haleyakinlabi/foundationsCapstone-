@@ -1,0 +1,52 @@
+.left{
+    height: 700px;
+    width: 400px;
+    background-image:url(./home_photos/b&l\ left.png);
+    background-size: cover;
+    text-align: center;
+
+}
+.middle{
+    height: 700px;
+    width: 400px;
+    background-image: url(./home_photos/b&l\ middle.png);
+    background-size: cover;
+    text-align: center;
+}
+.right{
+    height: 700px;
+    width: 400px;
+    background-image: url(./home_photos/b&l\ right.png); 
+    background-size: cover;
+    text-align: center;
+}
+.flex_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.page_links{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+.page_links:hover{
+    color:rgb(255, 140, 101)
+}
+.decor_box{
+    height: 50%;
+    width: 100%;
+    background-color: white;
+    opacity: .3;
+    position: fixed;
+    top:70%
+}
+header{
+    height: 50px;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    color: rgb(255, 140, 101);
+}

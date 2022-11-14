@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create_character</title>
+    <link rel="stylesheet" href="./create_char.css">
+</head>
+<body>
+ 
+     <nav class="nav_bar">
+        <div class="links">
+            <br>
+            <a class="page_links" href="../home/home.html">
+                home</a> 
+        </div>
+    <!-- ----------------------------- -->
+        <div class="links">
+            <br>
+            <a class="page_links" href="../random_char/random_char.html">
+                generate random character</a> 
+        </div>
+    <!-- ------------------------------ -->
+        <div class="links">
+            <br>
+            <a class="page_links" href="../see_chars/see_chars.html">
+                see all characters</a> 
+        </div>
+    <!-- ------------------------------ -->
+        <div class="links">
+            <br>
+            <a class="page_links" href="../create_char/create_char.html">
+                create new character</a> 
+
+        </div>
+     </nav>
+
+     <section>
+        <div class="background_image"></div>
+        <div class="box1"></div>
+     </section>
+
+
+
+
+
+     <!-- FORM----------------------------------------------------- -->
+     <form class="form"id="form" action="/character" method="POST">
+        <h1>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Create New Character</h1>
+
+            <!-- first_name and last_name -->
+            <label for="fname-input">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp First Name: &nbsp &nbsp</label>
+            <input type='text' id="fname-input"/>
+
+            <label for="lname-input"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Last Name: &nbsp &nbsp</label>
+            <input type='text' id="lname-input"/>
+            <!-- ----------------------------- -->
+
+            <!-- race -->
+            <label for="race-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Race: &nbsp &nbsp</label>
+            <select id="race-select"></select>
+
+            <!-- gender -->
+            <label for="gender-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Gender: &nbsp &nbsp</label>
+            <select id="gender-select"></select>
+
+            <!-- sex_orientation -->
+            <label for="sex_orientation-select"><br><br>Sexual Orientation: &nbsp &nbsp</label>
+            <select id="sex_orientation-select"></select>
+
+            <!-- eye_color -->
+            <label for="eye_color-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Eye Color: &nbsp &nbsp</label>
+            <select id="eye_color-select"></select>
+
+            <!-- hair_color -->
+            <label for="hair_color-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Hair Color: &nbsp &nbsp</label>
+            <select id="hair_color-select"></select>
+
+            <!-- age -->
+            <label for="age-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Age: &nbsp &nbsp</label>
+            <select id="age-select"></select>
+
+            <!-- personality triats -->
+            <h2>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Personality Traits</h2>
+            
+            <label for="personality_traits_One-select">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp One: &nbsp &nbsp</label>
+            <select id="personality_traits_One-select"></select>
+
+            <label for="personality_traits_Two-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Two: &nbsp &nbsp</label>
+            <select id="personality_traits_Two-select"></select>
+
+            <label for="personality_traits_Three-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Three: &nbsp</label>
+            <select id="personality_traits_Three-select"></select>
+
+            <!-- Aesthetic -->
+            <label for="aesthetic-input"><br><br>&nbsp &nbsp &nbsp &nbsp Aesthetic URL: &nbsp &nbsp</label>
+            <input type='text' id="aesthetic-input"/>
+
+            <button type="submit"id="submit">Create Character</button>
+     </form>
+
+            
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <script src="./create_char.js"></script>
+</body>
+</html>
