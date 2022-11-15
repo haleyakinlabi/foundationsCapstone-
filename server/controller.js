@@ -464,12 +464,21 @@ module.exports = {
         console.log('createCharacter', req.body)
         sequelize.query(`
         INSERT INTO character (first_name, last_name, eye_color_id, hair_color_id, race_id, aesthetic_id, age_id, sex_orientation_id, gender_id, personality_traits_id_one, personality_traits_id_two, personality_traits_id_three)
-        VALUES ('${req.body.fname}', '${req.body.lname}', ${req.body.eye_color}, ${req.body.hair_color}, ${req.body.race}, 1, ${req.body.age}, ${req.body.sex_orientation}, ${req.body.gender}, ${req.body.personality_traits_One}, ${req.body.personality_traits_Two}, ${req.body.personality_traits_Three});
+        VALUES ('${req.body.fname}', '${req.body.lname}', ${req.body.eye_color}, ${req.body.hair_color}, ${req.body.race}, 1, ${req.body.age}, ${req.body.sex_orientation}, ${req.body.gender}, ${req.body.personality_traits_One}, ${req.body.personality_traits_Two}, ${req.body.personality_traits_Three})
+        RETURNING character_id;
         `).then((dbRes)=>{
             res.status(200).send(dbRes)
         })
 
 
+    },
+    getCharacter: (req, res) => {
+        sequelize.query(`SELECT * FROM character WHERE character_id = ${req.params.id};`)
+          .then((dbRes)=>{res.status(200).send(dbRes[0])})
+    },
+    getCharacters: (req, res) => {
+        sequelize.query(`SELECT * FROM character;`)
+            .then((dbRes)=>{res.status(200).send(dbRes[0])})
     }
 }
     

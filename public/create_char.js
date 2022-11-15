@@ -33,8 +33,9 @@ function createCharacter(event){
     }
 
     axios.post('/createCharacter', body).then(function(data){
-        // show newly created character
-        debugger     
+        const character = data.data[0][0]
+        const url = `/see_chars.html#${character.character_id}`
+        window.location = url
     })
 
 

@@ -6,7 +6,21 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const {SERVER_PORT} = process.env
 
-const {seed, getRace, getGender, getSexOrientation, getEyeColor, getHairColor, getAge, getPTraitOne, getPTraitTwo, getPTraitThree, createCharacter} = require('./controller.js')
+const {
+    seed, 
+    getRace, 
+    getGender, 
+    getSexOrientation, 
+    getEyeColor, 
+    getHairColor, 
+    getAge, 
+    getPTraitOne, 
+    getPTraitTwo, 
+    getPTraitThree, 
+    createCharacter,
+    getCharacter,
+    getCharacters
+} = require('./controller.js')
 
 app.use(express.json())
 app.use(bodyParser.json())
@@ -20,6 +34,10 @@ app.post('/seed', seed)
 
 //create character form 
 app.post('/createCharacter', createCharacter)
+
+//get character 
+app.get('/character/:id', getCharacter)
+app.get('/characters', getCharacters)
 
 
 
@@ -62,6 +80,8 @@ app.get('/pTraitOne', getPTraitOne)
 app.get('/pTraitTwo', getPTraitTwo)
 
 app.get('/pTraitThree', getPTraitThree)
+
+
 
 
 
