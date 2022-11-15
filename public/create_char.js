@@ -1,5 +1,6 @@
 const form = document.querySelector('#form')
 
+
 //input
 const firstNameInput = document.querySelector('#fname-input')
 const lastNameInput = document.querySelector('#lname-input')
@@ -20,86 +21,14 @@ const pTraitThreeSelect = document.querySelector('#personality_traits_Three-sele
 
 //functions:
 
+function createCharacter(event){
+    event.preventDefault()
 
-
-function handleSubmit(e) {
-    e.preventDefault()
-
-    if (firstNameInput.value < 1) {
-        alert ('You must enter a first name')
-        return
-    }
-    if (lastNameInput.value < 1) {
-        alert ('You must enter a last name')
-        return
-    }
-    if (aestheticInput.value < 1) {
-        alert ('You must enter a image URL')
-        return
-    }
-
-    let body = {
-        first_name: firstNameInput.value,
-        last_name: lastNameInput.value,
-        aesthetic: aestheticInput.value, 
-        
-        eye_color_id: +eyeColorSelect.value,
-        hair_color_id: +hairColorSelect.value,
-        race_id: +raceSelect.value,
-        age_id: +ageSelect.value, 
-        sex_orientation_id: +sexOrientationSelect.value,
-        gender_id: +genderSelect.value,
-        personality_traits_id_one: +pTraitOneSelect.value,
-        personality_traits_id_two: +pTraitTwoSelect.value,
-        personality_traits_id_three: +pTraitThreeSelect.value
-
-        // name: nameInput.value, 
-        // rating: +userRating, 
-        // countryId: +countrySelect.value
-    }
+    axios.post('/createCharacter', new FormData(form)).then(function(data){
+        debugger     
+    })
+    
 }
-
-    // axios.post('http://localhost:4004/cities', body)
-    //     .then(() => {
-    //         countrySelect.value = 1
-    //         nameInput.value = ''
-    //         document.querySelector('#rating-one').checked = true
-    //         getCities()
-    //     })
-// }
-
-// function deleteCard(id) {
-//     axios.delete(`http://localhost:4004/cities/${id}`)
-//         .then(() => getCities())
-//         .catch(err => console.log(err))
-// }
-
-// function getCities() {
-//     countryList.innerHTML = ''
-
-//     axios.get('http://localhost:4004/cities/')
-//         .then(res => {
-//             res.data.forEach(elem => {
-//                 let countryCard = `<div class="country-card">
-//                     <h2>${elem.city}, ${elem.country}</h2>
-//                     <h3>Rating: ${elem.rating}/5</h3>
-//                     <button onclick="deleteCard(${elem['city_id']})">Delete</button>
-//                     </div>
-//                 `
-
-//                 countryList.innerHTML += countryCard
-//             })
-//         })
-// }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -108,7 +37,7 @@ function handleSubmit(e) {
 
 //race//
 function getRace() {
-    axios.get('http://localhost:4004/race')
+    axios.get('http://localhost:5500/race')
         .then(res => {
             res.data.forEach(race => {
                 const option = document.createElement('option')
@@ -121,7 +50,7 @@ function getRace() {
 
 //gender//
 function getGender() {
-    axios.get('http://localhost:4004/gender')
+    axios.get('http://localhost:5500/gender')
         .then(res => {
             res.data.forEach(gender => {
                 const option = document.createElement('option')
@@ -134,7 +63,7 @@ function getGender() {
 
 //sex_orientation//
 function getSexOrientation() {
-    axios.get('http://localhost:4004/sexOrientation')
+    axios.get('http://localhost:5500/sexOrientation')
         .then(res => {
             res.data.forEach(sex_orientation => {
                 const option = document.createElement('option')
@@ -147,7 +76,7 @@ function getSexOrientation() {
 
 //eye_color//
 function getEyeColor() {
-    axios.get('http://localhost:4004/eyeColor')
+    axios.get('http://localhost:5500/eyeColor')
         .then(res => {
             res.data.forEach(eye_color => {
                 const option = document.createElement('option')
@@ -160,7 +89,7 @@ function getEyeColor() {
 
 //hair_color//
 function getHairColor() {
-    axios.get('http://localhost:4004/hairColor')
+    axios.get('http://localhost:5500/hairColor')
         .then(res => {
             res.data.forEach(hair_color => {
                 const option = document.createElement('option')
@@ -173,7 +102,7 @@ function getHairColor() {
 
 //age//
 function getAge() {
-    axios.get('http://localhost:4004/age')
+    axios.get('http://localhost:5500/age')
         .then(res => {
             res.data.forEach(age => {
                 const option = document.createElement('option')
@@ -186,7 +115,7 @@ function getAge() {
 
 //personality traits//
 function getPTraitOne() {
-    axios.get('http://localhost:4004/pTraitOne')
+    axios.get('http://localhost:5500/pTraitOne')
         .then(res => {
             res.data.forEach(personality_traits => {
                 const option = document.createElement('option')
@@ -198,7 +127,7 @@ function getPTraitOne() {
 }
 
 function getPTraitTwo() {
-    axios.get('http://localhost:4004/pTraitTwo')
+    axios.get('http://localhost:5500/pTraitTwo')
         .then(res => {
             res.data.forEach(personality_traits => {
                 const option = document.createElement('option')
@@ -210,7 +139,7 @@ function getPTraitTwo() {
 }
 
 function getPTraitThree() {
-    axios.get('http://localhost:4004/pTraitThree')
+    axios.get('http://localhost:5500/pTraitThree')
         .then(res => {
             res.data.forEach(personality_traits => {
                 const option = document.createElement('option')
@@ -238,3 +167,5 @@ getPTraitOne()
 getPTraitTwo()
 getPTraitThree()
 
+
+form.addEventListener('submit', createCharacter)

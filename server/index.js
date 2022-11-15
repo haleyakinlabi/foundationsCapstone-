@@ -1,9 +1,11 @@
 require('dotenv').config()
+// const path = require('path')
 const express = require('express')
 const app = express()
 const cors = require('cors')
 const {SERVER_PORT} = process.env
 
+app.use(express.static('public'));
 
 const {seed, getRace, getGender, getSexOrientation, getEyeColor, getHairColor, getAge, getPTraitOne, getPTraitTwo, getPTraitThree, createCharacter} = require('./controller.js')
 
@@ -16,7 +18,29 @@ app.use(cors())
 app.post('/seed', seed)
 
 //create character form 
-app.post('/character', createCharacter)
+app.post('/createCharacter', createCharacter)
+
+
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../home/home.html'))
+// })
+// app.get('/home/home.css', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../home/home.css'))
+// })
+// app.get('/home/home.js', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../home/home.js'))
+// })
+
+
+
+
+
+
+
+
+
+
 
 
 //create new character drop downs
@@ -48,4 +72,12 @@ app.get('/pTraitThree', getPTraitThree)
 
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))
+
+
+
+
+
+
+
+
 
