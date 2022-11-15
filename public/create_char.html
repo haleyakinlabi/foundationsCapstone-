@@ -46,56 +46,56 @@
 
 
      <!-- FORM----------------------------------------------------- -->
-     <form class="form" id="form">
+     <form class="form" id="form" action="/createCharacter" method="POST">
         <h1>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Create New Character</h1>
 
             <!-- first_name and last_name -->
             <label for="fname-input">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp First Name: &nbsp &nbsp</label>
-            <input type='text' id="fname-input"/>
+            <input type='text' id="fname-input" name="fname"/>
 
             <label for="lname-input"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Last Name: &nbsp &nbsp</label>
-            <input type='text' id="lname-input"/>
+            <input type='text' id="lname-input" name="lname"/>
             <!-- ----------------------------- -->
 
             <!-- race -->
             <label for="race-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Race: &nbsp &nbsp</label>
-            <select id="race-select"></select>
+            <select id="race-select" name="race"> </select>
 
             <!-- gender -->
             <label for="gender-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Gender: &nbsp &nbsp</label>
-            <select id="gender-select"></select>
+            <select id="gender-select" name="gender"></select>
 
             <!-- sex_orientation -->
             <label for="sex_orientation-select"><br><br>Sexual Orientation: &nbsp &nbsp</label>
-            <select id="sex_orientation-select"></select>
+            <select id="sex_orientation-select" name="sex_orientation"></select>
 
             <!-- eye_color -->
             <label for="eye_color-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Eye Color: &nbsp &nbsp</label>
-            <select id="eye_color-select"></select>
+            <select id="eye_color-select" name="eye_color"></select>
 
             <!-- hair_color -->
             <label for="hair_color-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Hair Color: &nbsp &nbsp</label>
-            <select id="hair_color-select"></select>
+            <select id="hair_color-select" name="hair_color"></select>
 
             <!-- age -->
             <label for="age-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Age: &nbsp &nbsp</label>
-            <select id="age-select"></select>
+            <select id="age-select" name="age"></select>
 
             <!-- personality triats -->
             <h2>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Personality Traits</h2>
             
             <label for="personality_traits_One-select">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp One: &nbsp &nbsp</label>
-            <select id="personality_traits_One-select"></select>
+            <select id="personality_traits_One-select" name="personality_traits_One"></select>
 
             <label for="personality_traits_Two-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Two: &nbsp &nbsp</label>
-            <select id="personality_traits_Two-select"></select>
+            <select id="personality_traits_Two-select" name="personality_traits_Two"></select>
 
             <label for="personality_traits_Three-select"><br><br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Three: &nbsp</label>
-            <select id="personality_traits_Three-select"></select>
+            <select id="personality_traits_Three-select" name="personality_traits_Three"></select>
 
             <!-- Aesthetic -->
             <label for="aesthetic-input"><br><br>&nbsp &nbsp &nbsp &nbsp Aesthetic URL: &nbsp &nbsp</label>
-            <input type='text' id="aesthetic-input"/>
+            <input type='text' id="aesthetic-input" name="aesthetic"/>
 
             <button type="submit"id="submit">Create Character</button>
      </form>

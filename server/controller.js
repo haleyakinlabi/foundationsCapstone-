@@ -459,7 +459,17 @@ module.exports = {
         })
     },
     createCharacter: (req, res) => {
-        res.status(200).send('You created a character!')
+        // create character in database
+
+        console.log('createCharacter', req.body)
+        sequelize.query(`
+        INSERT INTO character (first_name, last_name, eye_color_id, hair_color_id, race_id, aesthetic_id, age_id, sex_orientation_id, gender_id, personality_traits_id_one, personality_traits_id_two, personality_traits_id_three)
+        VALUES ('${req.body.fname}', '${req.body.lname}', ${req.body.eye_color}, ${req.body.hair_color}, ${req.body.race}, 1, ${req.body.age}, ${req.body.sex_orientation}, ${req.body.gender}, ${req.body.personality_traits_One}, ${req.body.personality_traits_Two}, ${req.body.personality_traits_Three});
+        `).then((dbRes)=>{
+            res.status(200).send(dbRes)
+        })
+
+
     }
 }
     

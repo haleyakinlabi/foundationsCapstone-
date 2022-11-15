@@ -3,13 +3,14 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const bodyParser = require('body-parser')
 const {SERVER_PORT} = process.env
-
-app.use(express.static('public'));
 
 const {seed, getRace, getGender, getSexOrientation, getEyeColor, getHairColor, getAge, getPTraitOne, getPTraitTwo, getPTraitThree, createCharacter} = require('./controller.js')
 
 app.use(express.json())
+app.use(bodyParser.json())
+app.use(express.static('public'))
 app.use(cors())
 
 

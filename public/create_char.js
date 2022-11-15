@@ -1,6 +1,7 @@
 const form = document.querySelector('#form')
 
 
+
 //input
 const firstNameInput = document.querySelector('#fname-input')
 const lastNameInput = document.querySelector('#lname-input')
@@ -24,9 +25,21 @@ const pTraitThreeSelect = document.querySelector('#personality_traits_Three-sele
 function createCharacter(event){
     event.preventDefault()
 
-    axios.post('/createCharacter', new FormData(form)).then(function(data){
+    const formData = new FormData(form)
+    const body = {}
+
+    for (const pair of formData.entries()) {
+      body[pair[0]] = pair[1]
+    }
+
+    axios.post('/createCharacter', body).then(function(data){
+        // show newly created character
         debugger     
     })
+
+
+
+
     
 }
 
