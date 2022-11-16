@@ -2,6 +2,23 @@ require('dotenv').config()
 
 const Sequelize = require('sequelize')
 
+const characterQuery = `SELECT 
+character.first_name, 
+character.last_name, 
+race.race,
+gender.gender,
+sex_orientation.sex_orientation,
+eye_color.eye_color,
+hair_color.hair_color,
+age.age
+FROM character 
+JOIN race ON race.race_id = character.race_id
+JOIN gender ON gender.gender_id = character.gender_id
+JOIN sex_orientation ON sex_orientation.orientation_id = character.sex_orientation_id
+JOIN eye_color ON eye_color.eye_color_id = character.eye_color_id
+JOIN hair_color ON hair_color.hair_color_id = character.hair_color_id
+JOIN age ON age.age_id = character.age_id`
+
 const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
     dialect: 'postgres',
     dialectOptions: {
@@ -473,12 +490,31 @@ module.exports = {
 
     },
     getCharacter: (req, res) => {
-        sequelize.query(`SELECT * FROM character WHERE character_id = ${req.params.id};`)
+        let sql = `${characterQuery} WHERE character_id = ${req.params.id} limit 1;`
+        if (req.params.id === 'random')
+          sql = `${characterQuery} order by random () limit 1;`
+        sequelize.query(sql)
           .then((dbRes)=>{res.status(200).send(dbRes[0])})
     },
     getCharacters: (req, res) => {
-        sequelize.query(`SELECT * FROM character;`)
+        sequelize.query(characterQuery)
             .then((dbRes)=>{res.status(200).send(dbRes[0])})
     }
 }
     
+// SELECT first_name, last_name, race, gender, sex_orientation, eye_color, hair_color, age
+// FROM character
+// JOIN race
+//     ON character.race_id = race_id
+// JOIN gender
+//     ON character.gender_id = gender_id
+// JOIN sex_orientation
+//     ON character.sex_orientation_id = orientation_id
+// JOIN eye_color
+//     ON character.eye_color_id = eye_color_id
+// JOIN hair_color
+//     ON character.hair_color_id = hair_color_id
+// JOIN age
+//     ON character.age_id = age_id
+
+

@@ -1,4 +1,5 @@
 const characterContainer = document.querySelector('#characters-container')
+const randomCharBtn = document.querySelector('#randomCharBtn')
 
 function getCharacter(id) {
     axios.get(`http://localhost:5500/character/${id}`)
@@ -27,4 +28,9 @@ function initCharacters () {
     }
 }
 
+function loadAnotherRandomCharacter () {
+    window.location = `/see_chars.html?seed=${Math.random()}#random`  
+}
+
 setTimeout(initCharacters, 100)
+randomCharBtn.addEventListener('click', loadAnotherRandomCharacter)
