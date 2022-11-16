@@ -10,14 +10,20 @@ gender.gender,
 sex_orientation.sex_orientation,
 eye_color.eye_color,
 hair_color.hair_color,
-age.age
+age.age,
+pt1.Ptraits personality_trait_one,
+pt2.Ptraits personality_trait_two,
+pt3.Ptraits personality_trait_three
 FROM character 
 JOIN race ON race.race_id = character.race_id
 JOIN gender ON gender.gender_id = character.gender_id
 JOIN sex_orientation ON sex_orientation.orientation_id = character.sex_orientation_id
 JOIN eye_color ON eye_color.eye_color_id = character.eye_color_id
 JOIN hair_color ON hair_color.hair_color_id = character.hair_color_id
-JOIN age ON age.age_id = character.age_id`
+JOIN age ON age.age_id = character.age_id
+JOIN personality_traits AS pt1 ON pt1.Ptraits_id = character.personality_traits_id_one
+JOIN personality_traits AS pt2 ON pt2.Ptraits_id = character.personality_traits_id_two
+JOIN personality_traits AS pt3 ON pt3.Ptraits_id = character.personality_traits_id_three`
 
 const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
     dialect: 'postgres',

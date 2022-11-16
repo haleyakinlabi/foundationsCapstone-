@@ -54,9 +54,33 @@
     content: "Race: ";
     opacity: 0.5;
 }
+.gender::before{
+    content: "Gender: ";
+    opacity: 0.5;
+}
+
+.sex_orientation::before{
+    content: "Sexual Orientation: ";
+    opacity: 0.5;
+}
+
+.eye_color::before{
+    content: "Eye Color: ";
+    opacity: 0.5;
+}
+
+.hair_color::before{
+    content: "Hair Color: ";
+    opacity: 0.5;
+}
+
+.personality_trait::before{
+    content: "Personality Trait: ";
+    opacity: 0.5;
+}
 
 body{
-    background-image: url(/see_chars_photos/background.png);
+    background-color: black;
 }
 
 

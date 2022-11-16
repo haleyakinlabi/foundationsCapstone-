@@ -14,11 +14,46 @@ function buildCharacterElement (character) {
     race.classList.add('race')
     race.innerText = character.race
 
+    const gender = document.createElement('div')
+    gender.classList.add('gender')
+    gender.innerText = character.gender
+
+    const sex_orientation = document.createElement('div')
+    sex_orientation.classList.add('sex_orientation')
+    sex_orientation.innerText = character.sex_orientation
+
+    const eye_color = document.createElement('div')
+    eye_color.classList.add('eye_color')
+    eye_color.innerText = character.eye_color
+
+    const hair_color = document.createElement('div')
+    hair_color.classList.add('hair_color')
+    hair_color.innerText = character.hair_color
+
+    const pt1 = document.createElement('div')
+    pt1.classList.add('personality_trait')
+    pt1.innerText = character.personality_trait_one
+
+    const pt2 = document.createElement('div')
+    pt2.classList.add('personality_trait')
+    pt2.innerText = character.personality_trait_two
+
+    const pt3 = document.createElement('div')
+    pt3.classList.add('personality_trait')
+    pt3.innerText = character.personality_trait_three
+
     const element = document.createElement('div')
     element.classList.add('character')
     element.appendChild(firstName)
     element.appendChild(lastName)
     element.appendChild(race)
+    element.appendChild(gender)
+    element.appendChild(sex_orientation)
+    element.appendChild(eye_color)
+    element.appendChild(hair_color)
+    element.appendChild(pt1)
+    element.appendChild(pt2)
+    element.appendChild(pt3)
     return element
 }
 
